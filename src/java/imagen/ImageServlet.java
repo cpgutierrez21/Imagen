@@ -33,18 +33,10 @@ public class ImageServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("image/png");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ImageServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Imagen</h1>");            
+        
+                  
             String ruta = getServletContext().getRealPath(File.separator);
-            out.println(ruta+"BigImageMix.png");
+          
             ServletOutputStream sout;
             sout=response.getOutputStream();
             
@@ -60,16 +52,7 @@ public class ImageServlet extends HttpServlet {
             fin.close();
             bout.close();
             sout.close();
-            //File f=new File(ruta+"BigImageMix.png");            
-            //BufferedImage bi = ImageIO.read(f);
-            //OutputStream miOut =  response.getOutputStream();
-            //ImageIO.write(bi, "png", miOut);
-            //miOut.close();
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
-            out.close();
-        }
+            
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
