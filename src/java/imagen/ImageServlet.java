@@ -36,13 +36,13 @@ public class ImageServlet extends HttpServlet {
         
                   
             String ruta = "c:\\BigImageMix.png";
+           // SingleImage imgObjeto = SingleImage.getinstanciaImagen();
             
-          
             ServletOutputStream sout;
             sout=response.getOutputStream();                        
             InputStream fin = new FileInputStream(ruta);            
             int bytesRead=0;
-            byte[] bytes = new byte[500]; 
+            byte[] bytes = new byte[7000]; 
             while((bytesRead=fin.read())!=-1){
                 sout.write(bytes, 0, bytesRead);
             }
