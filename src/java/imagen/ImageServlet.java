@@ -35,18 +35,17 @@ public class ImageServlet extends HttpServlet {
         response.setContentType("image/png");
         
                   
-            String ruta = getServletContext().getRealPath(File.separator);
+            String ruta = "C:\\BigImageMix.png";
+            byte[] bytes = new byte[5000];
           
             ServletOutputStream sout;
-            sout=response.getOutputStream();
-            
-            
-            FileInputStream fin = new FileInputStream(ruta);
+            sout=response.getOutputStream();                        
+            InputStream fin = new FileInputStream(ruta);
             BufferedInputStream bin = new BufferedInputStream(fin);
             BufferedOutputStream bout = new BufferedOutputStream(sout);
-            int ch=0;
-            while((ch=bin.read())!=-1){
-                bout.write(ch);
+            int bytesRead=0;
+            while((bytesRead=bin.read())!=-1){
+                bout.write(bytes, 0, bytesRead);
             }
             bin.close();
             fin.close();
