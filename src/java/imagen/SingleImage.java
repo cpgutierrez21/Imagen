@@ -20,7 +20,7 @@ public class SingleImage {
     private static SingleImage instanciaImagen=new SingleImage();    
     InputStream fin;
     int bytesRead=0;
-    byte[] bytes = new byte[7000];
+    static byte[] bytes = new byte[7000];
     private SingleImage(){}
     public static SingleImage getinstanciaImagen(){return instanciaImagen;}
     public void mostrarImagen(ServletOutputStream o, String r) throws FileNotFoundException, IOException{        
